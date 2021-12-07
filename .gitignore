@@ -8,7 +8,6 @@
 
 # dependencies
 /node_modules
-/tests
 *.local
 yarn.lock
 package-lock.json
