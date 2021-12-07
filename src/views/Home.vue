@@ -1,7 +1,7 @@
 <template>
   <div class="home-container page-container">
-    <img class="vue-element-plus-logo" alt="Vue logo" src="../assets/logo.png" />
-    <div class="page-title">Vite2.x + Vue3.x + TypeScript + Element Plus</div>
+    <img class="vue-element-plus-logo" alt="Vue logo" src="../assets/fff.png" />
+    <div class="page-title">try do something is meaningful !</div>
   </div>
 </template>
 

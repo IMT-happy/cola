@@ -22,7 +22,6 @@ https://vite-vue3-starter.xpoet.cn/
 
 1️⃣&nbsp;[掘金](https://juejin.cn/post/6951649464637636622)&emsp;2️⃣&nbsp;[XPoet's Blog](https://xpoet.cn/2021/04/%E4%BB%8E-0-%E5%BC%80%E5%A7%8B%E6%89%8B%E6%8A%8A%E6%89%8B%E5%B8%A6%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E5%A5%97%E8%A7%84%E8%8C%83%E7%9A%84-Vue3.x-%E5%B7%A5%E7%A8%8B%E5%8C%96%E9%A1%B9%E7%9B%AE/)
 
-
 ## 技术栈
 
 - 编程语言：[TypeScript 4.x](https://www.typescriptlang.org/zh/) + [JavaScript](https://www.javascript.com/)
@@ -79,15 +78,14 @@ npm run build
 
 ## Q&A
 
-1. Q: `git cz` 不生效  
+1. Q: `git cz` 不生效
 
    A: 请全局安装 commitizen，命令：`npm install commitizen -g`
 
-2. Q: husky 报错  
+2. Q: husky 报错
 
    A: 请检查你的项目下是否有 Git 仓库，没有则先 `git init` 初始化一个
 
 ## 许可
 
 MIT Copyright © 2021 XPoet
-

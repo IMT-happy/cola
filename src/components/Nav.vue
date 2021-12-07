@@ -1,5 +1,8 @@
 <template>
   <aside class="nav">
+    <div class="logo">
+      <img src="../assets/logo.gif" alt="" /><span class="logoname">Cola</span>
+    </div>
     <ul class="nav-list">
       <li
         class="nav-item flex-center"
@@ -18,6 +21,7 @@
 import { defineComponent, reactive, toRefs, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { NavItem } from '../common/types'
+import navlists from '../router/navbarconf'
 
 export default defineComponent({
   name: 'Nav',
@@ -26,28 +30,7 @@ export default defineComponent({
     const router = useRouter()
 
     const reactiveData = reactive({
-      navList: [
-        {
-          name: 'Home',
-          isActive: false,
-          path: '/'
-        },
-        {
-          name: 'Vuex',
-          isActive: false,
-          path: '/vuex'
-        },
-        {
-          name: 'Axios',
-          isActive: false,
-          path: '/axios'
-        },
-        {
-          name: 'Test',
-          isActive: false,
-          path: '/test'
-        }
-      ],
+      navList: navlists,
 
       navClick(e: NavItem) {
         router.push(e.path)
@@ -73,6 +56,8 @@ export default defineComponent({
       router.isReady().then(() => {
         changeNavActive(router.currentRoute.value.path)
       })
+
+      // console.log('rrr', routers)
     })
 
     return {
@@ -86,13 +71,26 @@ export default defineComponent({
 
 @import "../style/basic.styl"
 
+
 .nav {
   position relative
   width 100%
   height 100%
   box-sizing border-box
   background: #fff
-
+  .logo {
+    display flex;
+    height 60px
+    width: 120px;
+    margin-left: 5%;
+  }
+  .logoname {
+    color: lightslategrey;
+    margin-top: 10%;
+    margin-left: 20%;
+    font-size: 30px;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+  }
   .nav-list {
 
     .nav-item {

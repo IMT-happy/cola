@@ -1,24 +1,32 @@
 <template>
   <div class="header">
-    <div class="title" @click="router.push('/')">
-      Vite2.x + Vue3.x + TypeScript Starter
-    </div>
-    <div class="go-github" @click="goGitHub">
-      <i class="icon el-icon-s-promotion"></i> GitHub
+    <div class="title" @click="router.push('/')">Home</div>
+    <div class="go-github" @click="goqaMng">
+      <i class="icon el-icon-s-promotion"></i> 回到旧版
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
 import { useRouter } from 'vue-router'
+import { defineComponent } from 'vue'
 
-// eslint-disable-next-line no-unused-vars
-const router = useRouter()
+export default defineComponent({
+  name: 'Header',
+  setup() {
+    // eslint-disable-next-line no-unused-vars
+    const router = useRouter()
 
-// eslint-disable-next-line no-unused-vars
-const goGitHub = () => {
-  window.open('https://github.com/XPoet/vite-vue3-starter')
-}
+    // eslint-disable-next-line no-unused-vars
+    const goqaMng = () => {
+      window.open('http://qa-mng.bilibili.co/#/dashboard')
+    }
+    return {
+      router,
+      goqaMng
+    }
+  }
+})
 </script>
 
 <style scoped lang="stylus">

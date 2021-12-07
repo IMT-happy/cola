@@ -1,8 +1,7 @@
 <template>
   <div class="test-container page-container">
     <div class="page-title">Unit Test Page</div>
-    <p>count is: {{ count }}</p>
-    <button @click="increment">increment</button>
+    <div>hello you !</div>
   </div>
 </template>
 
