@@ -1,8 +1,8 @@
 const navlists: Array<any> = [
   {
-    name: 'Home',
+    name: 'Quality',
     isActive: false,
-    path: '/'
+    path: '/Quality'
   },
   {
     name: 'Vuex',
