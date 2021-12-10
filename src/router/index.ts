@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, Router, RouteRecordRaw } from 'vue-router'
 import Home from '@/views/Home.vue'
-import Quality from '@/views/quality.vue'
+import Quality from '@/views/Quality.vue'
 import Vuex from '@/views/Vuex.vue'
 import Test from '@/views/Test.vue'
 import pns from '@/views/pns.vue'

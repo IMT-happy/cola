@@ -17,7 +17,8 @@ export default defineConfig({
   server: {
     port: 8689, // 设置服务启动端口号
     open: true, // 设置服务启动时是否自动打开浏览器
-    cors: true // 允许跨域
+    cors: true, // 允许跨域
+    host: '0.0.0.0'
 
     // 设置代理，根据我们项目实际情况配置
     // proxy: {
