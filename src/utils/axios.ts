@@ -1,7 +1,7 @@
 import Axios, { AxiosInstance } from 'axios'
 import { ElMessage } from 'element-plus'
 
-const baseURL = 'https://api.github.com'
+const baseURL = 'http://172.16.39.188:6869' // local 'http://10.23.184.122:6869' remote:'http://172.16.39.188:6869'
 
 const axios: AxiosInstance = Axios.create({
   baseURL,

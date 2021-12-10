@@ -4,6 +4,7 @@ import Quality from '@/views/quality.vue'
 import Vuex from '@/views/Vuex.vue'
 import Test from '@/views/Test.vue'
 import pns from '@/views/pns.vue'
+import getpro from '@/views/getpro.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -35,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/pns',
     name: 'pns',
     component: pns
+  },
+  {
+    path: '/proback',
+    name: 'proback',
+    component: getpro
   }
 ]
 
