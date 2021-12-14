@@ -112,6 +112,7 @@ $left-side-width = 240px
     }
 
     .right {
+      transition all 0.3s ease;
       position relative
       width 100%
       height 100%
