@@ -1,5 +1,8 @@
 <template>
   <main class="main-container">
+    <div class="top">
+      <Header />
+    </div>
     <div class="bottom">
       <div :class="[isActive ? 'hidesiderbar' : 'left']">
         <Nav />
@@ -12,10 +15,10 @@
           />
         </div>
       </div>
-      <div class="right">
-        <div class="top">
+      <div class="right" :style="{ 'margin-left': !isActive ? '241px' : '' }">
+        <!-- <div class="top">
           <Header />
-        </div>
+        </div> -->
         <div class="content">
           <div class="navshow" @click="toogle">
             <img
@@ -63,7 +66,7 @@ export default defineComponent({
 
 @import "../style/basic.styl"
 
-$top-height = 60px
+$top-height = 70px
 $left-side-width = 240px
 
 .main-container {
@@ -81,14 +84,17 @@ $left-side-width = 240px
   justify-content space-between
 
   .top {
-    position relative
+    position fixed
+    z-index 9
     box-sizing border-box
     width 100%
     height $top-height
     margin-bottom 10px
+    border-bottom 1px solid #d9d4d4;
   }
 
   .bottom {
+    margin-top 75px
     position relative
     box-sizing border-box
     width 100%
@@ -97,11 +103,12 @@ $left-side-width = 240px
     justify-content space-between
 
     .left {
-      position relative
+      position fixed
       width $left-side-width
       height 100%
       box-sizing border-box
       transition: all 0.5s ease-in;
+      border-right 1px solid #d9d4d4;
     }
 
     .right {
@@ -109,7 +116,7 @@ $left-side-width = 240px
       width 100%
       height 100%
       box-sizing border-box
-      padding 0 10px 10px 10px
+      padding 0 5px 5px 5px
 
       .content {
         position relative
@@ -139,7 +146,7 @@ $left-side-width = 240px
 
 .navhide{
   position: fixed;/*此处即是固定按钮位置的属性。*/
-  left: 175px;
+  left: 200px;
   top: 50%;
   z-index:999
 }

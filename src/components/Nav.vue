@@ -1,8 +1,11 @@
 <template>
   <aside class="nav">
-    <div class="logo">
-      <img src="../assets/logo.gif" alt="" /><span class="logoname">Cola</span>
-    </div>
+    <!-- <div class="logo">
+      <img src="../assets/logo.gif" alt="" style="border-radius: 0.1em" /><span
+        class="logoname"
+        >Cola</span
+      >
+    </div> -->
     <ul class="nav-list">
       <li
         class="nav-item flex-center"
@@ -74,20 +77,23 @@ export default defineComponent({
 
 .nav {
   position relative
-  width 100%
+  width 240px
   height 100%
   box-sizing border-box
   background: #fff
   .logo {
     display flex;
     height 60px
-    width: 120px;
     margin-left: 5%;
+    padding-top 5px
+    padding-bottom 5px
+    border-bottom 1px solid #d9d4d4;
+    border-bottom-right-radius: 0.2em;
   }
   .logoname {
     color: lightslategrey;
-    margin-top: 10%;
-    margin-left: 20%;
+    margin-top: 6%;
+    margin-left: 16%;
     font-size: 30px;
     font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
   }

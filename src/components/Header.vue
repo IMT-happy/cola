@@ -1,8 +1,17 @@
 <template>
   <div class="header">
-    <div class="title" @click="router.push('/')">Home</div>
-    <div class="go-github" @click="goqaMng">
-      <i class="icon el-icon-s-promotion"></i> 回到旧版
+    <div class="logo">
+      <img src="../assets/logo.gif" alt="" style="border-radius: 0.1em" /><span
+        class="logoname"
+        >Cola</span
+      >
+    </div>
+    <div style="width: 5px; background: #f1f1f1; height: 100%"></div>
+    <div class="textcontent">
+      <div class="title" @click="router.push('/')">Home</div>
+      <div class="go-github" @click="goqaMng">
+        <i class="icon el-icon-s-promotion"></i> 回到旧版
+      </div>
     </div>
   </div>
 </template>
@@ -36,11 +45,18 @@ export default defineComponent({
   height 100%
   background #fff
   display flex
-  justify-content space-between
+  // justify-content space-between
   align-items center
-  padding 0 20px
+  padding 0 10px
   box-sizing border-box
   font-weight bold
+
+  .textcontent {
+    width 80%
+    padding-left 10px
+    display flex
+    justify-content space-between
+  }
 
   .title {
     font-size 20px
@@ -54,6 +70,22 @@ export default defineComponent({
     .icon {
       font-size 20px
     }
+  }
+  .logo {
+    width 230px
+    display flex;
+    height 60px
+    padding-top 5px
+    padding-bottom 5px
+    // border-right 2px solid #d9d4d4;
+    // border-bottom-right-radius: 0.5em;
+  }
+  .logoname {
+    color: lightslategrey;
+    margin-top: 6%;
+    margin-left: 16%;
+    font-size: 30px;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
   }
 }
 </style>
