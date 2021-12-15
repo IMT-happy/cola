@@ -6,7 +6,7 @@
         >Cola</span
       >
     </div>
-    <div style="width: 5px; background: #f1f1f1; height: 100%"></div>
+    <div style="min-width: 5px; background: #f1f1f1; height: 100%"></div>
     <div class="textcontent">
       <div class="title" @click="router.push('/')">Home</div>
       <div class="go-github" @click="goqaMng">
@@ -52,7 +52,7 @@ export default defineComponent({
   font-weight bold
 
   .textcontent {
-    width 80%
+    width 100%
     padding-left 10px
     display flex
     justify-content space-between
@@ -72,7 +72,7 @@ export default defineComponent({
     }
   }
   .logo {
-    width 230px
+    min-width 230px
     display flex;
     height 60px
     padding-top 5px
