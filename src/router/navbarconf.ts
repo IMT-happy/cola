@@ -5,10 +5,23 @@ const navlists: Array<any> = [
     path: '/Quality'
   },
   {
+    name: '花泽香菜',
+    isactive: false,
+    isSubShow: false,
+    children: [
+      {
+        name: '工藤新一',
+        isActive: false,
+        path: '/vuex'
+      }
+    ]
+  },
+  {
     name: '反馈建议',
     isactive: false,
     path: '/proback'
   }
+
   // {
   //   name: 'Vuex',
   //   isActive: false,

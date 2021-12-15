@@ -150,7 +150,7 @@ export default defineComponent({
       // 要操作的配置
       const option = {
         title: {
-          text: 'Stacked Line'
+          text: ''
         },
         tooltip: {
           trigger: 'axis'
@@ -308,7 +308,7 @@ export default defineComponent({
 
           drawpic()
           drawpicmain()
-          console.log('response: ', response.data)
+          // console.log('response: ', response.data)
         })
         .catch((error) => {
           ElMessage({

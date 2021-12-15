@@ -1,17 +1,23 @@
 <template>
-  <div class="titledesc">新版改造问题反馈或优化建议</div>
-  <el-form :model="form" label-width="120px">
-    <el-form-item label="问题名称">
-      <el-input v-model="form.proname"></el-input>
-    </el-form-item>
-    <el-form-item label="问题描述">
-      <el-input v-model="form.prodesc" type="textarea"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="onSubmit" size="mini">提交</el-button>
-      <el-button @click="Reset" size="mini">重置</el-button>
-    </el-form-item>
-  </el-form>
+  <div class="titleadvice">
+    <el-switch v-model="value1" active-text="我要提建议" @change="toggleisshow" />
+  </div>
+  <div v-show="isshow">
+    <div class="titledesc">新版改造问题反馈或优化建议</div>
+    <el-form :model="form" label-width="120px">
+      <el-form-item label="问题名称">
+        <el-input v-model="form.proname"></el-input>
+      </el-form-item>
+      <el-form-item label="问题描述">
+        <el-input v-model="form.prodesc" type="textarea"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit" size="mini">提交</el-button>
+        <el-button @click="Reset" size="mini">重置</el-button>
+      </el-form-item>
+    </el-form>
+  </div>
+
   <el-divider content-position="center">反馈详情</el-divider>
   <el-row :gutter="12" v-if="prodata.length > 0" :loading="proloading">
     <el-col
@@ -55,12 +61,17 @@ export default defineComponent({
         prodesc: ''
       },
       prodata: [] as any,
-      proloading: false
+      proloading: false,
+      isshow: false,
+      value1: false
     })
     const Reset = () => {
       console.log('reset!')
       state.form.proname = ''
       state.form.prodesc = ''
+    }
+    const toggleisshow = () => {
+      state.isshow = state.value1
     }
     const getinfodata = () => {
       state.proloading = true
@@ -113,7 +124,7 @@ export default defineComponent({
     })
     onBeforeMount(() => {})
 
-    return { onSubmit, Reset, ...toRefs(state) }
+    return { onSubmit, Reset, toggleisshow, ...toRefs(state) }
   }
 })
 </script>
@@ -121,6 +132,11 @@ export default defineComponent({
 <style scoped lang="stylus">
 .titledesc{
   margin-top:20px
+  margin-left 50px
   margin-bottom: 20px
+}
+.titleadvice {
+  margin-top:10px
+  margin-left 50px
 }
 </style>

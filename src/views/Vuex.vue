@@ -1,9 +1,6 @@
 <template>
   <div class="vuex-container page-container">
-    <div class="page-title">Vuex Test Page</div>
-    <div>
-      <img src="../assets/fff.png" alt="" />
-    </div>
+    <div class="page-title">完善多级菜单占位使用</div>
   </div>
 </template>
 

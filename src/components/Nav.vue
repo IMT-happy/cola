@@ -1,20 +1,38 @@
 <template>
   <aside class="nav">
-    <!-- <div class="logo">
-      <img src="../assets/logo.gif" alt="" style="border-radius: 0.1em" /><span
-        class="logoname"
-        >Cola</span
-      >
-    </div> -->
-    <ul class="nav-list">
+    <ul class="nav-list" v-for="(nav, index) in navList" :key="index">
       <li
         class="nav-item flex-center"
-        v-for="(nav, index) in navList"
-        :key="index"
         :class="{ active: nav.isActive }"
-        @click="navClick(nav)"
+        @click="navClick(nav, index)"
       >
-        {{ nav.name }}
+        <div>
+          {{ nav.name }}
+        </div>
+        <div class="iconshow">
+          <img
+            v-if="nav.isSubShow"
+            v-show="nav.children && nav.children.length > 0"
+            src="../assets/downin.png"
+          />
+          <img
+            v-else
+            v-show="nav.children && nav.children.length > 0"
+            src="../assets/rightin.png"
+          />
+        </div>
+      </li>
+      <li
+        v-for="(it, idx) in nav.children"
+        :key="idx"
+        v-show="nav.isSubShow"
+        class="nav-item flex-center"
+        :class="{ active: it.isActive }"
+        @click="navchildClick(it)"
+      >
+        <div>
+          {{ it.name }}
+        </div>
       </li>
     </ul>
   </aside>
@@ -34,16 +52,33 @@ export default defineComponent({
 
     const reactiveData = reactive({
       navList: navlists,
-
-      navClick(e: NavItem) {
-        router.push(e.path)
+      navClick(e: NavItem, ind: any) {
+        reactiveData.navList[ind].isSubShow = !reactiveData.navList[ind].isSubShow
+        if (e.path) {
+          router.push(e.path)
+        }
+      },
+      navchildClick(e: NavItem) {
+        if (e.path) {
+          router.push(e.path)
+        }
       }
     })
 
     const changeNavActive = (currentPath: string) => {
       reactiveData.navList.forEach((v: NavItem) => {
-        const temp = v
-        temp.isActive = temp.path === currentPath
+        let temp
+        if (v.children && v.children.length > 0) {
+          v.children.forEach((vv: NavItem) => {
+            const tempv = vv
+            tempv.isActive = tempv.path === currentPath
+            temp = tempv
+          })
+        } else {
+          const tempvv = v
+          tempvv.isActive = v.path === currentPath
+          temp = tempvv
+        }
         return temp
       })
     }
@@ -59,8 +94,6 @@ export default defineComponent({
       router.isReady().then(() => {
         changeNavActive(router.currentRoute.value.path)
       })
-
-      // console.log('rrr', routers)
     })
 
     return {
@@ -81,22 +114,6 @@ export default defineComponent({
   height 100%
   box-sizing border-box
   background: #fff
-  .logo {
-    display flex;
-    height 60px
-    margin-left: 5%;
-    padding-top 5px
-    padding-bottom 5px
-    border-bottom 1px solid #d9d4d4;
-    border-bottom-right-radius: 0.2em;
-  }
-  .logoname {
-    color: lightslategrey;
-    margin-top: 6%;
-    margin-left: 16%;
-    font-size: 30px;
-    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
-  }
   .nav-list {
 
     .nav-item {
@@ -112,6 +129,11 @@ export default defineComponent({
 
     }
 
+  }
+  .iconshow{
+    margin-top 7px
+    position fixed
+    margin-left 200px
   }
 
 }
