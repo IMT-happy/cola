@@ -123,7 +123,7 @@ $left-side-width = 240px
       .content {
         position relative
         width 100%
-        // height 100%
+        height 100%
         background $background-color
         border-radius 5px
         box-sizing border-box

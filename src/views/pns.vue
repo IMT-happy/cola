@@ -1,29 +1,29 @@
 <template>
-  <div id="">
-    <div class="test"></div>
-    <div class="testhh">hhhhhh</div>
+  <div class="test-container page-container">
+    <div class="page-title">卡顿监控</div>
+    <div>规划中, 敬请期待...</div>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: 'pns'
-}
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  name: 'Vuex',
+  setup() {
+    const count = ref<number>(0)
+    const increment = () => {
+      count.value += 1
+    }
+    return { count, increment }
+  }
+})
 </script>
 
 <style scoped lang="stylus">
-.test {
-    float:left
-    width: 80px;
-    height: 40px;
-    border-left: 1px solid #e9e2e2;
-    border-bottom: 1px solid #e9e2e2;
-    border-radius: 15p x;
-    border-bottom-left-radius: 0.5em;
-    margin-left: 20px;
-    margin-right: 5px;
-}
-.testhh {
-  padding-top: 30px
+button {
+  cursor pointer
+  font-size 20px
+  padding 5px
 }
 </style>

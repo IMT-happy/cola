@@ -1,7 +1,7 @@
 <template>
   <div class="test-container page-container">
-    <div class="page-title">Unit Test Page</div>
-    <div>hello you !</div>
+    <div class="page-title">积分系统整理</div>
+    <div>规划中, 敬请期待...</div>
   </div>
 </template>
 

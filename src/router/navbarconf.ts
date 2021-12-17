@@ -17,6 +17,42 @@ const navlists: Array<any> = [
     ]
   },
   {
+    name: 'Web专项',
+    isactive: false,
+    isSubShow: false,
+    children: [
+      {
+        name: 'XSS巡检',
+        isActive: false,
+        path: '/Axios'
+      }
+    ]
+  },
+  {
+    name: '活动专项',
+    isactive: false,
+    isSubShow: false,
+    children: [
+      {
+        name: '积分流程',
+        isActive: false,
+        path: '/Test'
+      }
+    ]
+  },
+  {
+    name: '播放专项',
+    isactive: false,
+    isSubShow: false,
+    children: [
+      {
+        name: '卡顿监控',
+        isActive: false,
+        path: '/pns'
+      }
+    ]
+  },
+  {
     name: '反馈建议',
     isactive: false,
     path: '/proback'

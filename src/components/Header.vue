@@ -59,6 +59,9 @@ export default defineComponent({
   .title {
     font-size 20px
     cursor pointer
+    &:hover {
+      color: #409eff
+      }
   }
 
   .go-github {
@@ -68,6 +71,9 @@ export default defineComponent({
     .icon {
       font-size 20px
     }
+    &:hover {
+      color: #409eff
+      }
   }
   .logo {
     min-width 230px
@@ -79,10 +85,10 @@ export default defineComponent({
     // border-bottom-right-radius: 0.5em;
   }
   .logoname {
-    color: lightslategrey;
-    margin-top: 6%;
-    margin-left: 16%;
-    font-size: 30px;
+    color: #409eff;
+    margin-top: 3%;
+    margin-left: 12%;
+    font-size: 37px;
     font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
   }
 }
