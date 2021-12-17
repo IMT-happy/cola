@@ -109,6 +109,9 @@ $left-side-width = 240px
       box-sizing border-box
       transition: all 0.5s ease-in;
       border-right 1px solid #d9d4d4;
+      &:hover .navhide{
+        opacity: 1;
+      }
     }
 
     .right {
@@ -119,6 +122,9 @@ $left-side-width = 240px
       height 100%
       box-sizing border-box
       padding 0 5px 5px 5px
+      &:hover .navshow{
+        opacity: 1;
+      }
 
       .content {
         position relative
@@ -128,6 +134,7 @@ $left-side-width = 240px
         border-radius 5px
         box-sizing border-box
         padding 10px
+
       }
     }
   }
@@ -147,12 +154,14 @@ $left-side-width = 240px
   }
 
 .navhide{
+  opacity: 0;
   position: fixed;/*此处即是固定按钮位置的属性。*/
   left: 200px;
   top: 50%;
   z-index:999
 }
 .navshow{
+  opacity: 0;
   position: fixed;/*此处即是固定按钮位置的属性。*/
   top: 50%;
   z-index:999
