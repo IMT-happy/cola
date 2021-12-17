@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import SvgIcon from '@/components/svgIcon.vue'
+import SvgIcon from '../components/svgIcon.vue'
 import { FormatPipelineStageicon } from '@/utils/filters'
 
 export default defineComponent({
