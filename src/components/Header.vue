@@ -1,14 +1,15 @@
 <template>
   <div class="header">
     <div class="logo">
-      <img src="../assets/logo.gif" alt="" style="border-radius: 0.1em" /><span
-        class="logoname"
-        >Cola</span
-      >
+      <img
+        src="../assets/newlogo.png"
+        alt=""
+        style="border-radius: 50%; height: 60px; width: 60px; margin-left: 30px"
+      /><span class="logoname">Cola</span>
     </div>
     <div style="min-width: 5px; background: #f1f1f1; height: 100%"></div>
     <div class="textcontent">
-      <div class="title" @click="router.push('/')">Home</div>
+      <div class="title" @click="router.push('/')">首页</div>
       <div class="go-github" @click="goqaMng">
         <i class="icon el-icon-s-promotion"></i> 回到旧版
       </div>
@@ -23,10 +24,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'Header',
   setup() {
-    // eslint-disable-next-line no-unused-vars
     const router = useRouter()
-
-    // eslint-disable-next-line no-unused-vars
     const goqaMng = () => {
       window.open('http://qa-mng.bilibili.co/#/dashboard')
     }

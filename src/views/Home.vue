@@ -4,7 +4,7 @@
     <div class="logoscontent">尊敬的VIP用户您好～</div>
   </div>
   <div class="homecontainer">
-    <div class="homedesc">欢迎来到Cola</div>
+    <div class="homedesc">欢迎使用Cola</div>
     <div class="homeimg">
       <img src="../assets/logo.gif" alt="" />
     </div>

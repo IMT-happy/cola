@@ -4,3 +4,9 @@ export interface NavItem {
   isActive: boolean
   children: []
 }
+
+// export interface Response {
+//   code: string
+//   msg: string
+//   data: []
+// }

@@ -26,6 +26,7 @@
         v-for="(it, idx) in nav.children"
         :key="idx"
         v-show="nav.isSubShow"
+        style="margin-left: 15px"
         class="nav-item flex-center"
         :class="{ active: it.isActive }"
         @click="navchildClick(it)"

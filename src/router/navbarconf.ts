@@ -5,12 +5,12 @@ const navlists: Array<any> = [
     path: '/Quality'
   },
   {
-    name: '花泽香菜',
+    name: '通用工具',
     isactive: false,
     isSubShow: false,
     children: [
       {
-        name: '工藤新一',
+        name: '覆盖率',
         isActive: false,
         path: '/vuex'
       }
