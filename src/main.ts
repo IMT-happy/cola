@@ -7,7 +7,7 @@ import App from './App.vue'
 import router from '@/router/index'
 import styleImport from '@/utils/style-import'
 import '@/style/basic.styl'
-import svgIcon from './components/SvgIcon.vue'
+import svgIcon from '@/components/svgIcon.vue'
 
 const app = createApp(App)
 styleImport(app)
