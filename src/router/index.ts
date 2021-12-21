@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, Router, RouteRecordRaw } from 'vue-router'
 import NProgress from 'nprogress'
-import Cookie from 'js-cookie'
+// import Cookie from 'js-cookie'
 // import { encode } from 'querystring'
 import Home from '@/views/Home.vue'
 import Quality from '@/views/Quality.vue'
@@ -11,8 +11,8 @@ import getpro from '@/views/getpro.vue'
 import common from '@/views/common.vue'
 
 import 'nprogress/nprogress.css'
-import { store } from '@/store'
-import { Session } from '@/utils/storage'
+// import { store } from '@/store'
+// import { Session } from '@/utils/storage'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -97,29 +97,29 @@ router.beforeEach(async (to, from, next) => {
   NProgress.configure({ showSpinner: false })
   // console.log('to: ', to, 'from: ', from, 'next: ', next)
   if (to.name) NProgress.start()
-  if (to.meta.requireAuth) {
-    const gitlabToken = Cookie.get('username')
-    console.log(gitlabToken)
-    if (!gitlabToken) {
-      const nextUrl = `https://dashboard-mng.bilibili.co/login.html?caller=172.16.39.188:8689`
-      Session.clear()
-      NProgress.done()
-      window.location.href = nextUrl
-    } else {
-      // 已拿到登陆成功信息，尝试写入cookie和session，和登陆用户信息到store
-      if (!Session.get('username')) {
-        Session.set('username', gitlabToken)
-        const loginUserName = Cookie.get('username') || 'admin'
-        store.state.name = loginUserName
-      }
-      // 前往请求页面
-      next()
-      NProgress.done()
-    }
-  } else {
-    next()
-    NProgress.done()
-  }
+  // if (to.meta.requireAuth) {
+  //   const gitlabToken = Cookie.get('username')
+  //   console.log(gitlabToken)
+  //   if (!gitlabToken) {
+  //     const nextUrl = `https://dashboard-mng.bilibili.co/login.html?caller=cola`
+  //     Session.clear()
+  //     NProgress.done()
+  //     window.location.href = nextUrl
+  //   } else {
+  //     // 已拿到登陆成功信息，尝试写入cookie和session，和登陆用户信息到store
+  //     if (!Session.get('username')) {
+  //       Session.set('username', gitlabToken)
+  //       const loginUserName = Cookie.get('username') || 'admin'
+  //       store.state.name = loginUserName
+  //     }
+  //     // 前往请求页面
+  //     next()
+  //     NProgress.done()
+  //   }
+  // } else {
+  //   next()
+  //   NProgress.done()
+  // }
 })
 
 // 路由加载后
