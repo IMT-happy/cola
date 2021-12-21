@@ -10,8 +10,11 @@
     <div style="min-width: 5px; background: #f1f1f1; height: 100%"></div>
     <div class="textcontent">
       <div class="title" @click="router.push('/')">首页</div>
-      <div class="go-github" @click="goqaMng">
-        <i class="icon el-icon-s-promotion"></i> 回到旧版
+      <div class="rightcontent">
+        <div class="go-github" @click="goqaMng">
+          <i class="icon el-icon-s-promotion"></i> 回到旧版
+        </div>
+        <span style="margin-left: 20px">{{ name }}</span>
       </div>
     </div>
   </div>
@@ -19,18 +22,28 @@
 
 <script lang="ts">
 import { useRouter } from 'vue-router'
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs, onMounted } from 'vue'
+import Cookie from 'js-cookie'
 
 export default defineComponent({
   name: 'Header',
   setup() {
     const router = useRouter()
+    const state = reactive({
+      name: '' as any
+    })
     const goqaMng = () => {
       window.open('http://qa-mng.bilibili.co/#/dashboard')
     }
+
+    onMounted(() => {
+      const name = Cookie.get('username')
+      state.name = name || '未登录'
+    })
     return {
       router,
-      goqaMng
+      goqaMng,
+      ...toRefs(state)
     }
   }
 })
@@ -90,6 +103,9 @@ export default defineComponent({
     margin-left: 12%;
     font-size: 37px;
     font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+  }
+  .rightcontent {
+    display: flex;
   }
 }
 </style>
