@@ -53,7 +53,7 @@ export default defineComponent({
 
     onMounted(() => {
       const name = Cookie.get('username')
-      state.name = name || '未登录'
+      state.name = name || 'Admin'
     })
     return {
       router,

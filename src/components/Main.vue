@@ -28,7 +28,6 @@
               alt=""
             />
           </div>
-
           <router-view />
         </div>
       </div>
@@ -37,9 +36,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted, onUnmounted, reactive, toRefs } from 'vue'
+import Cookie from 'js-cookie'
 import Header from '@/components/Header.vue'
 import Nav from '@/components/Nav.vue'
+// 在script标签里
+import getmark from '../hooks/usewerter'
 
 export default defineComponent({
   name: 'Main',
@@ -50,13 +52,29 @@ export default defineComponent({
   },
   setup() {
     const isActive = ref(false)
+    const state = reactive({
+      name: 'IMT'
+    })
     const toogle = () => {
       isActive.value = !isActive.value
     }
 
+    const { watermark } = getmark()
+    onMounted(() => {
+      // 水印
+      const name = Cookie.get('username')
+      state.name = name || 'bilibili'
+      watermark(state.name) // 水印名
+    })
+    onUnmounted(() => {
+      state.name = ''
+      watermark(state.name)
+    })
+
     return {
       isActive,
-      toogle
+      toogle,
+      ...toRefs(state)
     }
   }
 })
