@@ -1,0 +1,25 @@
+ <svg class="page-map">
+        <defs>
+            <marker id="mar-success"
+                    markerUnits="strokeWidth"
+                    markerWidth="5"
+                    markerHeight="5"
+                    viewBox="0 0 12 12"
+                    refX="6"
+                    refY="6"
+                    orient="auto">
+                <path d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill: green;" />
+            </marker>
+            <marker id="mar1-success"
+                    markerUnits="strokeWidth"
+                    markerWidth="5"
+                    markerHeight="5"
+                    viewBox="0 0 12 12"
+                    refX="6"
+                    refY="6"
+                    orient="auto">
+                <path d="M8,11 L0,5 L10,2 L6,6 L8,11" style="fill: green;" />
+            </marker>
+        </defs>
+        <line x1="10%" y1="20%" x2="40%" y2="45%" id="montoser" stroke="green" stroke-width="8" marker-start="url(#mar1-success)" marker-end="url(#mar-success)" />
+    </svg>

@@ -31,11 +31,11 @@ export function FormatPipelineStageicon(str: string): string {
   if (str === 'running') {
     return 'loading'
   }
-  if (str === 'success') {
-    return 'success'
+  if (str === 'left') {
+    return 'left'
   }
-  if (str === 'failed') {
-    return 'fail'
+  if (str === 'right') {
+    return 'right'
   }
   if (str === 'warning') {
     return 'warning'

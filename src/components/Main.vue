@@ -24,7 +24,7 @@
             <img
               v-if="isActive"
               style="width: 30px; height: 35px; z-index: 999"
-              src="../assets/right.png"
+              src="../assets/left.png"
               alt=""
             />
           </div>
@@ -111,6 +111,14 @@ $left-side-width = 240px
       border-right 1px solid #d9d4d4;
       &:hover .navhide{
         opacity: 1;
+        @keyframes myleft
+        {
+          0%   {left:200px;}
+          25%  {left:190px;}
+          50%  {left:200px;}
+          75%  {left:190px;}
+          100% {left:200px;}
+        }
       }
     }
 
@@ -124,6 +132,14 @@ $left-side-width = 240px
       padding 0 5px 5px 5px
       &:hover .navshow{
         opacity: 1;
+        @keyframes myright
+        {
+          0%   {left:00px;}
+          25%  {left:10px;}
+          50%  {left:00px;}
+          75%  {left:10px;}
+          100% {left:00px;}
+        }
       }
 
       .content {
@@ -159,11 +175,13 @@ $left-side-width = 240px
   left: 200px;
   top: 50%;
   z-index:999
+  animation:myleft 3.5s  infinite alternate;
 }
 .navshow{
   opacity: 0;
   position: fixed;/*此处即是固定按钮位置的属性。*/
   top: 50%;
   z-index:999
+  animation:myright 3.5s  infinite alternate;
 }
 </style>

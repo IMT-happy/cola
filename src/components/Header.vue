@@ -14,7 +14,22 @@
         <div class="go-github" @click="goqaMng">
           <i class="icon el-icon-s-promotion"></i> 回到旧版
         </div>
-        <span style="margin-left: 20px">{{ name }}</span>
+        <div style="display: flex">
+          <img
+            src="../assets/head.jpg"
+            alt=""
+            style="border-radius: 50%; height: 30px; width: 30px; margin-left: 10px"
+          />
+          <span
+            style="
+              margin-left: 5px;
+              align-items: center;
+              display: -webkit-flex;
+              font-size: 13px;
+            "
+            >{{ name }}</span
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -70,6 +85,8 @@ export default defineComponent({
   }
 
   .title {
+    align-items:center;
+    display: -webkit-flex;
     font-size 20px
     cursor pointer
     &:hover {
@@ -80,6 +97,8 @@ export default defineComponent({
   .go-github {
     cursor pointer
     font-size 16px
+    align-items:center;
+    display: -webkit-flex;
 
     .icon {
       font-size 20px
