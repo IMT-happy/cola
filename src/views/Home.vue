@@ -1,7 +1,7 @@
 <template>
   <div class="logospec">
     <div><img class="logospecleft" src="../assets/logogirl.gif" alt="" /></div>
-    <div class="logoscontent">尊敬的VIP用户您好～</div>
+    <div class="logoscontent">尊敬的 {{ name }} 用户您好～</div>
   </div>
   <div class="homecontainer">
     <div class="homedesc">欢迎使用Cola</div>
@@ -12,11 +12,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs, onMounted } from 'vue'
+import infos from '../common/types/info'
 
 export default defineComponent({
   name: 'Home',
-  setup() {}
+  setup() {
+    const state = reactive({
+      name: ''
+    })
+    onMounted(() => {
+      const { name } = infos
+      state.name = name || 'bilibili'
+    })
+    return { ...toRefs(state) }
+  }
 })
 </script>
 

@@ -295,7 +295,7 @@ export default defineComponent({
             }
           })
 
-          nowdata.bilidata.forEach((ele: any) => {
+          nowdata.bilidata.reverse().forEach((ele: any) => {
             state.datedata.push(ele.date.slice(0, 10))
             state.firstpaintdata.push(ele.firstpaint)
             state.FCPdata.push(ele.FCP)

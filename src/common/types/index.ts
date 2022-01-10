@@ -5,8 +5,6 @@ export interface NavItem {
   children: []
 }
 
-// export interface Response {
-//   code: string
-//   msg: string
-//   data: []
-// }
+export interface Info {
+  name: string
+}
