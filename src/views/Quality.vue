@@ -44,7 +44,8 @@ export default defineComponent({
       baipingdata: [] as any,
       shoupindata: [] as any,
       onloaddata: [] as any,
-      domreadeddata: [] as any
+      domreadeddata: [] as any,
+      ttidata: [] as any
     })
     const drawpic = () => {
       // console.log('state', state)
@@ -68,7 +69,16 @@ export default defineComponent({
         xAxis: [
           {
             type: 'category',
-            data: ['Firstpaint', 'FCP', 'TTFB', '白屏', '首屏', 'onLoad', 'DomReaded']
+            data: [
+              'Firstpaint',
+              'FCP',
+              'TTFB',
+              '白屏',
+              '首屏',
+              'onLoad',
+              'DomReaded',
+              'TTI'
+            ]
           }
         ],
         yAxis: [
@@ -163,7 +173,8 @@ export default defineComponent({
             'baiping',
             'shoupin',
             'onload',
-            'domreaded'
+            'domreaded',
+            'TTI'
           ]
         },
         grid: {
@@ -220,6 +231,11 @@ export default defineComponent({
             name: 'domreaded',
             type: 'line',
             data: state.domreadeddata
+          },
+          {
+            name: 'TTI',
+            type: 'line',
+            data: state.ttidata
           }
         ]
       }
@@ -240,7 +256,8 @@ export default defineComponent({
                 ele.baipingtime,
                 ele.shoupingtime,
                 ele.onload,
-                ele.domreadedtime
+                ele.domreadytime,
+                ele.tti
               )
             } else if (ele.name === 'acfun') {
               state.acfundata.push(
@@ -250,7 +267,8 @@ export default defineComponent({
                 ele.baipingtime,
                 ele.shoupingtime,
                 ele.onload,
-                ele.domreadedtime
+                ele.domreadytime,
+                ele.tti
               )
             } else if (ele.name === 'iqiyi') {
               state.aiqiyidata.push(
@@ -260,7 +278,8 @@ export default defineComponent({
                 ele.baipingtime,
                 ele.shoupingtime,
                 ele.onload,
-                ele.domreadedtime
+                ele.domreadytime,
+                ele.tti
               )
             } else if (ele.name === 'xigua') {
               state.xiguadata.push(
@@ -270,7 +289,8 @@ export default defineComponent({
                 ele.baipingtime,
                 ele.shoupingtime,
                 ele.onload,
-                ele.domreadedtime
+                ele.domreadytime,
+                ele.tti
               )
             } else if (ele.name === 'tencent') {
               state.qqdata.push(
@@ -280,7 +300,8 @@ export default defineComponent({
                 ele.baipingtime,
                 ele.shoupingtime,
                 ele.onload,
-                ele.domreadedtime
+                ele.domreadytime,
+                ele.tti
               )
             } else {
               state.youkudata.push(
@@ -290,7 +311,8 @@ export default defineComponent({
                 ele.baipingtime,
                 ele.shoupingtime,
                 ele.onload,
-                ele.domreadedtime
+                ele.domreadytime,
+                ele.tti
               )
             }
           })
@@ -303,7 +325,8 @@ export default defineComponent({
             state.baipingdata.push(ele.baipingtime)
             state.shoupindata.push(ele.shoupingtime)
             state.onloaddata.push(ele.onload)
-            state.domreadeddata.push(ele.domreadedtime)
+            state.domreadeddata.push(ele.domreadytime)
+            state.ttidata.push(ele.tti)
           })
 
           drawpic()
