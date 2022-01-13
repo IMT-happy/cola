@@ -5,6 +5,10 @@ export interface NavItem {
   children: []
 }
 
-export interface Info {
+export interface cards {
+  id: number
   name: string
+  desc: string
+  count: number
+  date: string
 }

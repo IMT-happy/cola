@@ -27,8 +27,29 @@
       :key="index"
     >
       <el-card shadow="hover" style="color: #696b6f">
-        <span>名称：{{ item.name }}</span
-        ><span style="display: block; margin-top: 2px"> 描述：{{ item.desc }}</span>
+        <div class="cardflex">
+          <div>
+            <span>名称：{{ item.name }}</span
+            ><span style="display: block; margin-top: 2px"> 描述：{{ item.desc }}</span>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              margin-right: 20px;
+              cursor: pointer;
+            "
+          >
+            <img
+              @click="dianzan(item)"
+              v-if="item.count === 0"
+              src="../assets/like.png"
+              alt=""
+            />
+            <img @click="dianzan(item)" v-else src="../assets/liked.png" alt="" />
+            <span style="margin-left: 5px">{{ item.count }}</span>
+          </div>
+        </div>
       </el-card>
     </el-col>
   </el-row>
@@ -51,6 +72,7 @@
 import { defineComponent, toRefs, reactive, onMounted, onBeforeMount } from 'vue'
 import { ElMessage } from 'element-plus'
 import axios from '../utils/axios'
+import { cards } from '../common/types'
 
 export default defineComponent({
   name: 'getpro',
@@ -58,12 +80,14 @@ export default defineComponent({
     const state = reactive({
       form: {
         proname: '',
-        prodesc: ''
+        prodesc: '',
+        procount: 0
       },
       prodata: [] as any,
       proloading: false,
       isshow: false,
-      value1: false
+      value1: false,
+      dianzancount: 0
     })
     const Reset = () => {
       console.log('reset!')
@@ -98,8 +122,10 @@ export default defineComponent({
       if (state.form.proname && state.form.prodesc) {
         axios
           .post('/api/insertdata', {
+            id: state.prodata.length + 1,
             name: state.form.proname,
-            desc: state.form.prodesc
+            desc: state.form.prodesc,
+            count: state.form.procount
           })
           .then(() => {
             getinfodata()
@@ -118,13 +144,20 @@ export default defineComponent({
         })
       }
     }
+    const dianzan = (row: any) => {
+      state.prodata.forEach((ele: cards, ind: number) => {
+        if (ele.id === row.id) {
+          state.prodata[ind].count = row.count + 1
+        }
+      })
+    }
     onMounted(() => {
       // onSubmit()
       getinfodata()
     })
     onBeforeMount(() => {})
 
-    return { onSubmit, Reset, toggleisshow, ...toRefs(state) }
+    return { onSubmit, Reset, toggleisshow, dianzan, ...toRefs(state) }
   }
 })
 </script>
@@ -138,5 +171,9 @@ export default defineComponent({
 .titleadvice {
   margin-top:10px
   margin-left 50px
+}
+.cardflex {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
