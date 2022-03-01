@@ -11,9 +11,10 @@
     <div class="textcontent">
       <div class="title" @click="router.push('/')">首页</div>
       <div class="rightcontent">
-        <div class="go-github" @click="goqaMng">
+        <!-- <div class="go-github" @click="goqaMng">
           <i class="icon el-icon-s-promotion"></i> 回到旧版
-        </div>
+        </div> -->
+        <div class="go-github">老版本已下线</div>
         <div style="display: flex">
           <img
             src="../assets/head.jpg"
@@ -95,6 +96,7 @@ export default defineComponent({
   }
 
   .go-github {
+    color: red
     cursor pointer
     font-size 16px
     align-items:center;
