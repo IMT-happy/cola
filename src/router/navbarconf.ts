@@ -17,7 +17,7 @@ const navlists: Array<any> = [
     ]
   },
   {
-    name: 'Web专项',
+    name: '自动化测试',
     isactive: false,
     isSubShow: false,
     children: [
@@ -25,6 +25,11 @@ const navlists: Array<any> = [
         name: 'XSS巡检',
         isActive: false,
         path: '/Axios'
+      },
+      {
+        name: '冒烟自动化',
+        isActive: false,
+        path: '/Smoke'
       }
     ]
   },

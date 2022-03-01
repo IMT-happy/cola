@@ -352,7 +352,8 @@ export default defineComponent({
 
 <style scoped lang="stylus">
 .titledesc{
-  margin-top:20px
-  margin-bottom: 20px
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
 }
 </style>

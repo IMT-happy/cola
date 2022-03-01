@@ -9,6 +9,7 @@ import Test from '@/views/Test.vue'
 import pns from '@/views/pns.vue'
 import getpro from '@/views/getpro.vue'
 import common from '@/views/common.vue'
+import smoke from '@/views/Smoke.vue'
 import infos from '../common/types/info'
 import 'nprogress/nprogress.css'
 import { store } from '@/store'
@@ -40,6 +41,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/axios',
     name: 'Axios',
     component: () => import('@/views/Axios.vue'), // 懒加载 Axios 组件
+    meta: {
+      requireAuth: true // 需要登录才能访问
+    }
+  },
+  {
+    path: '/smoke',
+    name: 'Smoke',
+    component: smoke,
     meta: {
       requireAuth: true // 需要登录才能访问
     }
