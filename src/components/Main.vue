@@ -30,6 +30,11 @@
           </div>
           <router-view />
         </div>
+        <div class="footer">
+          <span> 业务测试部 -- 前端测试组 </span>
+          <br />
+          <span>Copyright © 2021 ~ 2022</span>
+        </div>
       </div>
     </div>
   </main>
@@ -201,5 +206,10 @@ $left-side-width = 240px
   top: 50%;
   z-index:999
   animation:myright 3.5s  infinite alternate;
+}
+.footer{
+  text-align: center;
+  float: unset;
+  margin-top: 15px;
 }
 </style>
