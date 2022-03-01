@@ -97,8 +97,8 @@ export default defineComponent({
             markLine: {
               lineStyle: {
                 type: 'dashed'
-              },
-              data: [[{ type: 'min' }, { type: 'max' }]]
+              }
+              // data: [[{ type: 'min' }, { type: 'max' }]]
             },
             data: state.bilibilidata
           },
