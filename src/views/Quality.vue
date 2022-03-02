@@ -54,6 +54,14 @@ export default defineComponent({
       // console.log('state', state)
       // 初始化echarts实例init（ dom ，'主题' ，其余参数如：{ renderer:'svg' }）
       const myEcharts = echarts.init(echartsRef.value!)
+      // let proxyname
+      // if (num !== 1) {
+      //   myEcharts.dispose()
+      //   const newEcharts = echarts.init(echartsRef.value!)
+      //   proxyname = newEcharts
+      // } else {
+      //   proxyname = myEcharts
+      // }
       // 要操作的配置
       const option = {
         tooltip: {
@@ -162,12 +170,19 @@ export default defineComponent({
           }
         ]
       }
-      // 设置配置
-      myEcharts.setOption(option)
+      // console.log('info', state.bilibilidata)
+      myEcharts.setOption(option, true)
     }
     const dochange = (item: any) => {
-      console.log('dochange: ', item)
+      // console.log('dochange: ', item)
       try {
+        state.bilibilidata = []
+        state.xiguadata = []
+        state.aiqiyidata = []
+        state.youkudata = []
+        state.qqdata = []
+        state.douyindata = []
+        state.acfundata = []
         axios
           .post('/api/changeneeddata', {
             searchdata: item.name
@@ -255,7 +270,7 @@ export default defineComponent({
                 )
               }
             })
-
+            drawpic()
             ElMessage({
               message: '数据加载成功',
               type: 'success'
