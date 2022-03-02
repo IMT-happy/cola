@@ -51,9 +51,9 @@ const navlists: Array<any> = [
     isSubShow: false,
     children: [
       {
-        name: '卡顿监控',
+        name: '切片diff',
         isActive: false,
-        path: '/pns'
+        path: '/videodiff'
       }
     ]
   },
@@ -61,6 +61,11 @@ const navlists: Array<any> = [
     name: '反馈建议',
     isactive: false,
     path: '/proback'
+  },
+  {
+    name: '线上监控',
+    isActive: false,
+    path: '/pns'
   }
 
   // {

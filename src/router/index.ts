@@ -7,6 +7,7 @@ import Quality from '@/views/Quality.vue'
 import Vuex from '@/views/Vuex.vue'
 import Test from '@/views/Test.vue'
 import pns from '@/views/pns.vue'
+import videodiff from '@/views/videodiff.vue'
 import getpro from '@/views/getpro.vue'
 import common from '@/views/common.vue'
 import smoke from '@/views/Smoke.vue'
@@ -73,6 +74,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/proback',
     name: 'proback',
     component: getpro,
+    meta: {
+      requireAuth: true // 需要登录才能访问
+    }
+  },
+  {
+    path: '/videodiff',
+    name: 'videodiff',
+    component: videodiff,
     meta: {
       requireAuth: true // 需要登录才能访问
     }

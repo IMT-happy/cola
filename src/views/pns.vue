@@ -1,33 +1,71 @@
 <template>
-  <div class="test-container page-container">
-    <div class="page-title">卡顿监控</div>
-    <div style="padding-bottom: 15px">规划中, 敬请期待...</div>
-    <SvgIcon :name="formatIconVal('running')"></SvgIcon>
+  <div class="kaduntitle">web前端-监控地址</div>
+  <el-divider content-position="left">播放器</el-divider>
+  <div class="kadunsectitle">卡顿相关</div>
+
+  <div class="secdesc">
+    <el-link style="font-size: 16px" :href="furl" type="primary" target="_blank"
+      >卡顿大盘细分</el-link
+    >
+  </div>
+  <div class="secdesc">
+    <el-link style="font-size: 16px" :href="surl" type="primary" target="_blank"
+      >卡顿类型细分</el-link
+    >
+  </div>
+  <div class="kadunsectitle">首帧相关</div>
+  <div class="secdesc">白屏 / 未初始化监控 <span style="color: red">待补充</span></div>
+  <div class="secdesc">首帧时长监控 <span style="color: red">待补充</span></div>
+  <div class="kadunsectitle">错误相关</div>
+  <div class="secdesc">
+    <el-link style="font-size: 16px" :href="murl" type="primary" target="_blank"
+      >其余错误码监控</el-link
+    >
+  </div>
+  <div class="kadunsectitle">P2P 相关</div>
+  <div class="secdesc">
+    <el-link style="font-size: 16px" :href="turl" type="primary" target="_blank"
+      >重点数据监控</el-link
+    >
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import SvgIcon from '../components/svgIcon.vue'
-import { FormatPipelineStageicon } from '@/utils/filters'
+import { defineComponent, onMounted, toRefs, reactive, onBeforeMount } from 'vue'
 
 export default defineComponent({
-  components: { SvgIcon },
-  name: 'Vuex',
+  name: 'Quality',
   setup() {
-    const formatIconVal = (str: string): string => {
-      return FormatPipelineStageicon(str)
-    }
+    const state = reactive({
+      furl: 'http://bi.bilibili.co/page/h0aa8802b9ec54dbba69f2fc',
+      surl: 'http://moni.bilibili.co/d/EcSDsERMz/web-bo-fang-qi-bo-fang-shu-ju-jian-kong-web?orgId=1&refresh=2m',
+      murl: 'http://moni.bilibili.co/d/EcSDsERMz/web-bo-fang-qi-bo-fang-shu-ju-jian-kong-web?orgId=1&refresh=2m',
+      turl: 'https://moni.bilibili.co/d/615MtsXGz1/web-p2p-ge-duan-zhong-dian-shu-ju-jian-kong?orgId=1&from=now-24h&to=now&refresh=2m'
+    })
 
-    return { formatIconVal }
+    onMounted(() => {})
+    onBeforeMount(() => {})
+
+    return { ...toRefs(state) }
   }
 })
 </script>
 
 <style scoped lang="stylus">
-button {
-  cursor pointer
-  font-size 20px
-  padding 5px
+.kaduntitle {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 20px;
+}
+.kadunsectitle{
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+.secdesc {
+  padding-left: 30px;
+  padding-top: 10px;
+
 }
 </style>
