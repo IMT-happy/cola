@@ -1,5 +1,6 @@
 <template>
   <div class="titledesc">竞品比较</div>
+  <div class="secdesc">当前数据展示日期： {{ nowtitle }}</div>
   <div
     class="echarts"
     ref="echartsRef"
@@ -36,6 +37,7 @@ export default defineComponent({
       aiqiyidata: [] as any,
       youkudata: [] as any,
       qqdata: [] as any,
+      douyindata: [] as any,
       acfundata: [] as any,
       datedata: [] as any,
       firstpaintdata: [] as any,
@@ -45,7 +47,8 @@ export default defineComponent({
       shoupindata: [] as any,
       onloaddata: [] as any,
       domreadeddata: [] as any,
-      ttidata: [] as any
+      ttidata: [] as any,
+      nowtitle: ''
     })
     const drawpic = () => {
       // console.log('state', state)
@@ -142,21 +145,136 @@ export default defineComponent({
             name: '腾讯',
             type: 'bar',
             barWidth: 15,
-            stack: 'Search Engine',
             emphasis: {
               focus: 'series'
             },
             data: state.qqdata
+          },
+          {
+            name: '抖音',
+            type: 'bar',
+            barWidth: 15,
+            stack: 'Search Engine',
+            emphasis: {
+              focus: 'series'
+            },
+            data: state.douyindata
           }
         ]
       }
       // 设置配置
       myEcharts.setOption(option)
     }
+    const dochange = (item: any) => {
+      console.log('dochange: ', item)
+      try {
+        axios
+          .post('/api/changeneeddata', {
+            searchdata: item.name
+          })
+          .then((response) => {
+            const nowdata = response.data
+            state.nowtitle = nowdata.data[0].date.slice(0, 10)
+            nowdata.data.forEach((ele: any) => {
+              if (ele.name === 'bilibili') {
+                state.bilibilidata.push(
+                  ele.firstpaint,
+                  ele.FCP,
+                  ele.TTFBtime,
+                  ele.baipingtime,
+                  ele.shoupingtime,
+                  ele.onload,
+                  ele.domreadytime,
+                  ele.tti
+                )
+              } else if (ele.name === 'acfun') {
+                state.acfundata.push(
+                  ele.firstpaint,
+                  ele.FCP,
+                  ele.TTFBtime,
+                  ele.baipingtime,
+                  ele.shoupingtime,
+                  ele.onload,
+                  ele.domreadytime,
+                  ele.tti
+                )
+              } else if (ele.name === 'iqiyi') {
+                state.aiqiyidata.push(
+                  ele.firstpaint,
+                  ele.FCP,
+                  ele.TTFBtime,
+                  ele.baipingtime,
+                  ele.shoupingtime,
+                  ele.onload,
+                  ele.domreadytime,
+                  ele.tti
+                )
+              } else if (ele.name === 'xigua') {
+                state.xiguadata.push(
+                  ele.firstpaint,
+                  ele.FCP,
+                  ele.TTFBtime,
+                  ele.baipingtime,
+                  ele.shoupingtime,
+                  ele.onload,
+                  ele.domreadytime,
+                  ele.tti
+                )
+              } else if (ele.name === 'tencent') {
+                state.qqdata.push(
+                  ele.firstpaint,
+                  ele.FCP,
+                  ele.TTFBtime,
+                  ele.baipingtime,
+                  ele.shoupingtime,
+                  ele.onload,
+                  ele.domreadytime,
+                  ele.tti
+                )
+              } else if (ele.name === 'douyin') {
+                state.douyindata.push(
+                  ele.firstpaint,
+                  ele.FCP,
+                  ele.TTFBtime,
+                  ele.baipingtime,
+                  ele.shoupingtime,
+                  ele.onload,
+                  ele.domreadytime,
+                  ele.tti
+                )
+              } else {
+                state.youkudata.push(
+                  ele.firstpaint,
+                  ele.FCP,
+                  ele.TTFBtime,
+                  ele.baipingtime,
+                  ele.shoupingtime,
+                  ele.onload,
+                  ele.domreadytime,
+                  ele.tti
+                )
+              }
+            })
+
+            ElMessage({
+              message: '数据加载成功',
+              type: 'success'
+            })
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+      } catch (e) {
+        ElMessage({
+          message: '服务好像出问题了，请联系IMT',
+          type: 'error'
+        })
+      }
+    }
     const drawpicmain = () => {
       // console.log('state', state)
       // 初始化echarts实例init（ dom ，'主题' ，其余参数如：{ renderer:'svg' }）
-      const myEcharts = echarts.init(echartsRef2.value!)
+      const eachmyEcharts = echarts.init(echartsRef2.value!)
       // 要操作的配置
       const option = {
         title: {
@@ -240,13 +358,19 @@ export default defineComponent({
         ]
       }
       // 设置配置
-      myEcharts.setOption(option)
+      eachmyEcharts.setOption(option)
+      eachmyEcharts.on('click', function (params) {
+        // 控制台打印数据的名称
+        dochange(params)
+        // console.log(params)
+      })
     }
     const getdata = () => {
       axios
         .get('/api/getnewquailtydata')
         .then((response) => {
           const nowdata = response.data
+          state.nowtitle = nowdata.data[0].date.slice(0, 10)
           nowdata.data.forEach((ele: any) => {
             if (ele.name === 'bilibili') {
               state.bilibilidata.push(
@@ -303,6 +427,17 @@ export default defineComponent({
                 ele.domreadytime,
                 ele.tti
               )
+            } else if (ele.name === 'douyin') {
+              state.douyindata.push(
+                ele.firstpaint,
+                ele.FCP,
+                ele.TTFBtime,
+                ele.baipingtime,
+                ele.shoupingtime,
+                ele.onload,
+                ele.domreadytime,
+                ele.tti
+              )
             } else {
               state.youkudata.push(
                 ele.firstpaint,
@@ -340,6 +475,7 @@ export default defineComponent({
           })
         })
     }
+
     onMounted(() => {
       getdata()
     })
@@ -355,5 +491,8 @@ export default defineComponent({
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
+}
+.secdesc {
+  padding-left: 20px;
 }
 </style>
