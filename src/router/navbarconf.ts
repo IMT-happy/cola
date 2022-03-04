@@ -66,6 +66,11 @@ const navlists: Array<any> = [
     name: '线上监控',
     isActive: false,
     path: '/pns'
+  },
+  {
+    name: '学习网站',
+    isActive: false,
+    path: '/study'
   }
 
   // {

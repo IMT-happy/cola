@@ -11,6 +11,7 @@ import videodiff from '@/views/videodiff.vue'
 import getpro from '@/views/getpro.vue'
 import common from '@/views/common.vue'
 import smoke from '@/views/Smoke.vue'
+import study from '@/views/study.vue'
 import infos from '../common/types/info'
 import 'nprogress/nprogress.css'
 import { store } from '@/store'
@@ -82,6 +83,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/videodiff',
     name: 'videodiff',
     component: videodiff,
+    meta: {
+      requireAuth: true // 需要登录才能访问
+    }
+  },
+  {
+    path: '/study',
+    name: 'study',
+    component: study,
     meta: {
       requireAuth: true // 需要登录才能访问
     }
