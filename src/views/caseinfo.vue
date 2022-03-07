@@ -179,6 +179,7 @@ export default defineComponent({
         })
         .then((response) => {
           state.casedata = response.data.data
+          state.nowlen = response.data.data.length
         })
         .catch((error) => {
           ElMessage({
@@ -275,8 +276,6 @@ export default defineComponent({
       } else {
         getallcasesearch(state.searchinput, currentname)
       }
-
-      state.nowlen = state.casedata.length
     })
     onBeforeMount(() => {})
 
