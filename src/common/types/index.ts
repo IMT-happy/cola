@@ -12,3 +12,11 @@ export interface cards {
   count: number
   date: string
 }
+
+export interface cases {
+  id: number
+  name: string
+  desc: string
+  contation: string
+  tag: string
+}

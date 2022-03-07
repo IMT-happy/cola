@@ -71,6 +71,11 @@ const navlists: Array<any> = [
     name: '学习网站',
     isActive: false,
     path: '/study'
+  },
+  {
+    name: 'case汇总',
+    isActive: false,
+    path: '/weballcase'
   }
 
   // {
