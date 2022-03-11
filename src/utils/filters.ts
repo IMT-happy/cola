@@ -42,3 +42,23 @@ export function FormatPipelineStageicon(str: string): string {
   }
   return 'pending'
 }
+
+// ;['run', 'm4s', 'header', 'response', 'all', 'rmimg']
+export function transferfuzzname(str: string): string {
+  if (str === 'run') {
+    return '播放过程中fuzz掉音视频文件请求'
+  }
+  if (str === 'm4s') {
+    return '加载初期对音视频文件进行block'
+  }
+  if (str === 'header') {
+    return '对音视频文件的请求头进行header的修改'
+  }
+  if (str === 'response') {
+    return '对音视频文件的返回体进行responsedata的修改'
+  }
+  if (str === 'all') {
+    return '播放实例之初fuzz掉页面全部文件请求'
+  }
+  return '播放页面图片资源全部fuzz掉'
+}

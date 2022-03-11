@@ -13,6 +13,7 @@ import common from '@/views/common.vue'
 import smoke from '@/views/Smoke.vue'
 import study from '@/views/study.vue'
 import weballcase from '@/views/weballcase.vue'
+import videofuzz from '@/views/videofuzz.vue'
 import caseinfo from '@/views/caseinfo.vue'
 import infos from '../common/types/info'
 import 'nprogress/nprogress.css'
@@ -85,6 +86,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/videodiff',
     name: 'videodiff',
     component: videodiff,
+    meta: {
+      requireAuth: true // 需要登录才能访问
+    }
+  },
+  {
+    path: '/videofuzz',
+    name: 'videofuzz',
+    component: videofuzz,
     meta: {
       requireAuth: true // 需要登录才能访问
     }

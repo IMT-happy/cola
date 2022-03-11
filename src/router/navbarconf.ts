@@ -54,6 +54,11 @@ const navlists: Array<any> = [
         name: '切片diff',
         isActive: false,
         path: '/videodiff'
+      },
+      {
+        name: '播放器fuzz',
+        isActive: false,
+        path: '/videofuzz'
       }
     ]
   },
