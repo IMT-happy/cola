@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="smoketitle">播放器切片流异常测试回归</div>
-    <div class="bodycontent">
-      <!-- <div style="padding-bottom: 15px">规划中, 敬请期待...</div> -->
-    </div>
+    <div class="bodycontent"></div>
     <div style="padding-left: 20px">
       <el-button
         type="plain"
@@ -12,7 +10,9 @@
         style="font-size: 15px; margin-bottom: 10px"
         >执行测试</el-button
       >
-      <SvgIcon :name="formatIconVal('running')" v-if="isshow"></SvgIcon>
+      <div>
+        <SvgIcon :name="formatIconVal('running')" v-if="isshow"></SvgIcon>
+      </div>
       <div style="font-size: 16px; margin-bottom: 15px">
         异常测试的播放页:
         <el-link
@@ -64,12 +64,12 @@
 <script lang="ts">
 import { defineComponent, toRefs, reactive, onMounted, onBeforeMount } from 'vue'
 import { ElMessage } from 'element-plus'
-// import SvgIcon from '../components/svgIcon.vue'
+import SvgIcon from '../components/svgIcon.vue'
 import { FormatPipelineStageicon, transferfuzzname } from '@/utils/filters'
 import axios from '../utils/axios'
 
 export default defineComponent({
-  // components: { SvgIcon },
+  components: { SvgIcon },
   name: 'Vuex',
   setup() {
     const state = reactive({
