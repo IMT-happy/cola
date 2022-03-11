@@ -2,8 +2,7 @@
   <div>
     <div class="smoketitle">播放器切片流异常测试回归</div>
     <div class="bodycontent">
-      <!-- <div style="padding-bottom: 15px">规划中, 敬请期待...</div>
-      <SvgIcon :name="formatIconVal('running')"></SvgIcon> -->
+      <!-- <div style="padding-bottom: 15px">规划中, 敬请期待...</div> -->
     </div>
     <div style="padding-left: 20px">
       <el-button
@@ -13,7 +12,7 @@
         style="font-size: 15px; margin-bottom: 10px"
         >执行测试</el-button
       >
-
+      <SvgIcon :name="formatIconVal('running')" v-if="isshow"></SvgIcon>
       <div style="font-size: 16px; margin-bottom: 15px">
         异常测试的播放页:
         <el-link
@@ -76,7 +75,8 @@ export default defineComponent({
     const state = reactive({
       videofuzzdata: [] as any,
       currentDate: new Date(),
-      videofuzztime: ''
+      videofuzztime: '',
+      isshow: false
     })
     const formatIconVal = (str: string): string => {
       return FormatPipelineStageicon(str)
@@ -105,6 +105,7 @@ export default defineComponent({
         })
     }
     const gorunfuzz = () => {
+      state.isshow = true
       axios
         .get('/api/runvideofuzz')
         .then((response) => {

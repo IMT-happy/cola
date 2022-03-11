@@ -58,7 +58,7 @@ export function transferfuzzname(str: string): string {
     return '对音视频文件的返回体进行responsedata的修改'
   }
   if (str === 'all') {
-    return '播放实例之初fuzz掉页面全部文件请求'
+    return '播放实例之初fuzz掉页面其他文件请求'
   }
   return '播放页面图片资源全部fuzz掉'
 }
