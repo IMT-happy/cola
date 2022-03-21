@@ -4,7 +4,7 @@ import Cookie from 'js-cookie'
 // import { encode } from 'querystring'
 import Home from '@/views/Home.vue'
 import Quality from '@/views/Quality.vue'
-import Vuex from '@/views/Vuex.vue'
+import webcoveage from '@/views/webcoveage.vue'
 import Test from '@/views/Test.vue'
 import pns from '@/views/pns.vue'
 import videodiff from '@/views/videodiff.vue'
@@ -36,9 +36,9 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/vuex',
-    name: 'Vuex',
-    component: Vuex,
+    path: '/webcoveage',
+    name: 'webcoveage',
+    component: webcoveage,
     meta: {
       requireAuth: true // 需要登录才能访问
     }
