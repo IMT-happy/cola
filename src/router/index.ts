@@ -14,6 +14,7 @@ import smoke from '@/views/Smoke.vue'
 import study from '@/views/study.vue'
 import weballcase from '@/views/weballcase.vue'
 import videofuzz from '@/views/videofuzz.vue'
+import webfuzz from '@/views/webfuzz.vue'
 import caseinfo from '@/views/caseinfo.vue'
 import infos from '../common/types/info'
 import 'nprogress/nprogress.css'
@@ -94,6 +95,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/videofuzz',
     name: 'videofuzz',
     component: videofuzz,
+    meta: {
+      requireAuth: true // 需要登录才能访问
+    }
+  },
+  {
+    path: '/webfuzz',
+    name: 'webfuzz',
+    component: webfuzz,
     meta: {
       requireAuth: true // 需要登录才能访问
     }

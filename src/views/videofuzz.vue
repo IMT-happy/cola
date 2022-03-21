@@ -70,7 +70,7 @@ import axios from '../utils/axios'
 
 export default defineComponent({
   components: { SvgIcon },
-  name: 'Vuex',
+  name: 'videofuzz',
   setup() {
     const state = reactive({
       videofuzzdata: [] as any,

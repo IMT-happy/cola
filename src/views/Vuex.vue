@@ -1,6 +1,6 @@
-<!-- <template>
-  <div class="pagecontainer">
-    <div class="titledesc">覆盖率收集集合</div>
+<template>
+  <div>
+    <div class="coveragetitle">前端覆盖率平台</div>
     <div class="search">
       <el-input
         size="mini"
@@ -17,71 +17,73 @@
         <el-button type="primary" size="mini" @click="getAllrate()">全量拉取</el-button>
       </div>
     </div>
-    <el-table
-      :data="tableData"
-      style="width: 100%"
-      v-loading="loading"
-      element-loading-text="正在执行，请稍候..."
-    >
-      <el-table-column fixed prop="id" label="序号" width="50" />
-      <el-table-column prop="name" label="项目">
-        <template #default="scope">
-          <el-link type="primary" :href="scope.row.url" target="_blank">
-            {{ scope.row.name }}
-          </el-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="servername" label="发布服务" width="160">
-        <template #default="scope">
-          <el-link
-            type="primary"
-            :href="riderhref + scope.row.servername"
-            target="_blank"
-          >
-            {{ scope.row.servername }}
-          </el-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="applicationname" label="Gitlab" width="300">
-        <template #default="scope">
-          <el-link type="primary" :href="scope.row.applicationname" target="_blank">
-            {{ scope.row.applicationname }}
-          </el-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="platform" label="pc/h5" width="60" />
-      <el-table-column prop="cangkuname" label="仓库名" width="130" />
-      <el-table-column prop="branch" label="分支" width="100"></el-table-column>
-      <el-table-column prop="environment" label="环境" width="50"></el-table-column>
-      <el-table-column prop="date" label="更新时间" width="160"></el-table-column>
-      <el-table-column label="开/关" width="70">
-        <template #default="scope">
-          <el-switch v-model="scope.row.isSelected" @change="changeselect(scope.row)">
-          </el-switch>
-        </template>
-      </el-table-column>
-      <el-table-column fixed="right" label="操作" width="120">
-        <template #default="scope">
-          <el-button type="text" size="small" @click="handlerateClick(scope.row)"
-            >查看详情</el-button
-          >
-          <el-button type="text" size="small" @click="handleEdit(scope.row)"
-            >编辑</el-button
-          >
-        </template>
-      </el-table-column>
-    </el-table>
-    <div class="pagelist">
-      <el-pagination
-        :currentPage="currentPage3"
-        background
-        :page-size="10"
-        prev-text="上一页"
-        next-text="下一页"
-        layout="prev, pager, next, jumper"
-        :total="totalnums"
-        @current-change="handleCurrentChange"
-      ></el-pagination>
+    <div class="coveragecontent">
+      <el-table
+        :data="tableData"
+        style="width: 100%; padding-left: 20px"
+        v-loading="loading"
+        element-loading-text="正在执行，请稍候..."
+      >
+        <el-table-column fixed prop="id" label="序号" width="50" />
+        <el-table-column prop="name" label="项目">
+          <template #default="scope">
+            <el-link type="primary" :href="scope.row.url" target="_blank">
+              {{ scope.row.name }}
+            </el-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="servername" label="发布服务" width="160">
+          <template #default="scope">
+            <el-link
+              type="primary"
+              :href="riderhref + scope.row.servername"
+              target="_blank"
+            >
+              {{ scope.row.servername }}
+            </el-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="applicationname" label="Gitlab" width="300">
+          <template #default="scope">
+            <el-link type="primary" :href="scope.row.applicationname" target="_blank">
+              {{ scope.row.applicationname }}
+            </el-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="platform" label="pc/h5" width="60" />
+        <el-table-column prop="cangkuname" label="仓库名" width="130" />
+        <el-table-column prop="branch" label="分支" width="100"></el-table-column>
+        <el-table-column prop="environment" label="环境" width="50"></el-table-column>
+        <el-table-column prop="date" label="更新时间" width="160"></el-table-column>
+        <el-table-column label="开/关" width="70">
+          <template #default="scope">
+            <el-switch v-model="scope.row.isSelected" @change="changeselect(scope.row)">
+            </el-switch>
+          </template>
+        </el-table-column>
+        <el-table-column fixed="right" label="操作" width="120">
+          <template #default="scope">
+            <el-button type="text" size="small" @click="handlerateClick(scope.row)"
+              >查看详情</el-button
+            >
+            <el-button type="text" size="small" @click="handleEdit(scope.row)"
+              >编辑</el-button
+            >
+          </template>
+        </el-table-column>
+      </el-table>
+      <div class="pagelist">
+        <el-pagination
+          :currentPage="currentPage3"
+          background
+          :page-size="10"
+          prev-text="上一页"
+          next-text="下一页"
+          layout="prev, pager, next, jumper"
+          :total="totalnums"
+          @current-change="handleCurrentChange"
+        ></el-pagination>
+      </div>
     </div>
     <el-dialog title="新增覆盖率项目" v-model="dialognewFormVisible">
       <el-form :label-position="labelPosition" label-width="80px" :model="form">
@@ -252,15 +254,21 @@ export default defineComponent({
     }
     const changeselect = (row: any) => {
       try {
+        const myobj = {
+          updatenum: row.id,
+          platform: row.platform,
+          branch: row.branch,
+          applicationname: row.applicationname,
+          cangkuname: row.cangkuname,
+          isSelected: row.isSelected
+        }
+
+        const obj = {
+          myobj
+        }
+
         anaxios
-          .post('/api/tooglecoverage', {
-            updatenum: row.id,
-            platform: row.platform,
-            branch: row.branch,
-            applicationname: row.applicationname,
-            cangkuname: row.cangkuname,
-            isSelected: row.isSelected
-          })
+          .post('/api/tooglecoverage', obj)
           .then((res: any) => {
             if (res.data.msg === 'success') {
               getAllrate()
@@ -300,10 +308,13 @@ export default defineComponent({
     const handlerateClick = (row: any) => {
       try {
         if (JSON.parse(row.isSelected)) {
-          const obj = {
+          const myobj = {
             platform: row.platform,
             applicationname: row.cangkuname,
             isSelected: row.isSelected
+          }
+          const obj = {
+            myobj
           }
           anaxios
             .post('/api/getnewfile', obj)
@@ -401,16 +412,21 @@ export default defineComponent({
           reactiveData.form.servername &&
           reactiveData.form.branch
         ) {
+          const myobj = {
+            name: reactiveData.form.name,
+            url: reactiveData.form.url,
+            applicationname: reactiveData.form.applicationname,
+            platform: reactiveData.form.platform,
+            cangkuname: reactiveData.form.cangkuname,
+            servername: reactiveData.form.servername,
+            branch: reactiveData.form.branch
+          }
+          const obj = {
+            myobj
+          }
+
           anaxios
-            .post('/api/insertcoverage', {
-              name: reactiveData.form.name,
-              url: reactiveData.form.url,
-              applicationname: reactiveData.form.applicationname,
-              platform: reactiveData.form.platform,
-              cangkuname: reactiveData.form.cangkuname,
-              servername: reactiveData.form.servername,
-              branch: reactiveData.form.branch
-            })
+            .post('/api/insertcoverage', obj)
             .then((res: any) => {
               if (res.data.msg === 'success') {
                 getAllrate()
@@ -486,6 +502,7 @@ export default defineComponent({
           .then((res: any) => {
             if (res.data.msg === 'success') {
               reactiveData.tableData = res.data.data
+              reactiveData.currentPage3 = val
             } else {
               reactiveData.loading = false
               reactiveData.tableData = []
@@ -537,17 +554,22 @@ export default defineComponent({
           reactiveData.formLabelAlign.servername &&
           reactiveData.formLabelAlign.branch
         ) {
+          const myobj = {
+            updatenum: reactiveData.formLabelAlign.id,
+            name: reactiveData.formLabelAlign.name,
+            url: reactiveData.formLabelAlign.url,
+            applicationname: reactiveData.formLabelAlign.applicationname,
+            platform: reactiveData.formLabelAlign.platform,
+            cangkuname: reactiveData.formLabelAlign.cangkuname,
+            servername: reactiveData.formLabelAlign.servername,
+            branch: reactiveData.formLabelAlign.branch
+          }
+          const obj = {
+            myobj
+          }
+
           anaxios
-            .post('/api/editcoverage', {
-              updatenum: reactiveData.formLabelAlign.id,
-              name: reactiveData.formLabelAlign.name,
-              url: reactiveData.formLabelAlign.url,
-              applicationname: reactiveData.formLabelAlign.applicationname,
-              platform: reactiveData.formLabelAlign.platform,
-              cangkuname: reactiveData.formLabelAlign.cangkuname,
-              servername: reactiveData.formLabelAlign.servername,
-              branch: reactiveData.formLabelAlign.branch
-            })
+            .post('/api/editcoverage', obj)
             .then((res: any) => {
               if (res.data.msg === 'success') {
                 getAllrate()
@@ -605,9 +627,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="stylus">
-.pagecontainer{
- margin-left 10px
-}
+
 .titledesc{
   margin-top:20px
   margin-bottom: 20px
@@ -615,7 +635,8 @@ export default defineComponent({
 .search {
   display: flex;
   justify-content: center;
-  margin-bottom 15px
+  margin-bottom 15px;
+  padding-left: 20px;
 }
 .inputbutton {
   margin-right: 10px;
@@ -628,42 +649,12 @@ export default defineComponent({
   margin-top: 10px;
   text-align: center;
 }
-</style> -->
-
-<template>
-  <div class="test-container page-container">
-    <div class="page-title">覆盖率计划重构中</div>
-    <div style="padding-bottom: 15px">敬请期待...</div>
-    <SvgIcon :name="formatIconVal('running')"></SvgIcon>
-  </div>
-</template>
-
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
-import SvgIcon from '../components/svgIcon.vue'
-import { FormatPipelineStageicon } from '@/utils/filters'
-
-export default defineComponent({
-  components: { SvgIcon },
-  name: 'Vuex',
-  setup() {
-    const formatIconVal = (str: string): string => {
-      return FormatPipelineStageicon(str)
-    }
-
-    const count = ref<number>(0)
-    const increment = () => {
-      count.value += 1
-    }
-    return { count, increment, formatIconVal }
-  }
-})
-</script>
-
-<style scoped lang="stylus">
-button {
-  cursor pointer
-  font-size 20px
-  padding 5px
+.coveragetitle {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 20px;
+}
+.coveragecontent {
+  padding-left: 20px;
 }
 </style>

@@ -13,6 +13,11 @@ const navlists: Array<any> = [
         name: '覆盖率',
         isActive: false,
         path: '/vuex'
+      },
+      {
+        name: '前端fuzz',
+        isActive: false,
+        path: '/webfuzz'
       }
     ]
   },

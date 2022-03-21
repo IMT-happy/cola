@@ -76,6 +76,7 @@
       <el-form-item label="所属Tag" prop="tag">
         <el-input v-model="ruleForm.tag" placeholder="eg: 安卓"></el-input>
       </el-form-item>
+      <el-form-item label="上传图片" prop="pic"> </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm(ruleFormRef)">开始新建</el-button>
         <el-button @click="resetForm(ruleFormRef)">我要重置</el-button>
@@ -116,6 +117,7 @@
 <script lang="ts">
 import { defineComponent, toRefs, reactive, ref, onMounted, onBeforeMount } from 'vue'
 import { ElForm, ElMessage } from 'element-plus' // ElMessage,
+// import { Plus, ZoomIn, Download, Delete } from '@element-plus/icons-vue'
 import router from '@/router'
 import axios from '../utils/axios'
 import { cases } from '../common/types'
@@ -125,7 +127,8 @@ type FormInstance = InstanceType<typeof ElForm>
 const ruleFormRef = ref<FormInstance>()
 
 export default defineComponent({
-  name: 'getpro',
+  // components: { Plus, ZoomIn, Download, Delete },
+  name: 'caseinfo',
   setup() {
     const newruleFormRef = ruleFormRef
     const state = reactive({
@@ -265,6 +268,7 @@ export default defineComponent({
     const returnback = () => {
       router.push({ name: 'weballcase' })
     }
+
     onMounted(() => {
       // console.log('pramas: ', router.currentRoute.value.query.name)
 
