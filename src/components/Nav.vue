@@ -110,6 +110,7 @@ export default defineComponent({
 
 
 .nav {
+  overflow-y: scroll;
   position relative
   width 240px
   height 100%
@@ -138,7 +139,7 @@ export default defineComponent({
   }
   .iconshow{
     margin-top 7px
-    position fixed
+    position absolute
     margin-left 200px
   }
 
