@@ -127,11 +127,11 @@ export default defineComponent({
       &.active {
         font-weight bold
         background $second-background-color
-        color #409eff
+        color #25ade5
       }
 
       &:hover {
-      color: #409eff
+      color: #25ade5
       }
 
     }

@@ -2,7 +2,7 @@
   <div class="header">
     <div class="logo">
       <img
-        src="../assets/newlogo.png"
+        src="../assets/homelogo.jpeg"
         alt=""
         style="border-radius: 50%; height: 60px; width: 60px; margin-left: 30px"
       /><span class="logoname">Cola</span>
@@ -91,12 +91,12 @@ export default defineComponent({
     font-size 20px
     cursor pointer
     &:hover {
-      color: #409eff
+      color: #25ade5
       }
   }
 
   .go-github {
-    color: #409eff;
+    color: #25ade5;
     margin-right: 10px
     cursor pointer
     font-size 16px
@@ -107,7 +107,7 @@ export default defineComponent({
       font-size 20px
     }
     &:hover {
-      color: #409eff
+      color: #25ade5
       }
   }
   .logo {
@@ -120,7 +120,7 @@ export default defineComponent({
     // border-bottom-right-radius: 0.5em;
   }
   .logoname {
-    color: #409eff;
+    color: #25ade5;
     margin-top: 3%;
     margin-left: 12%;
     font-size: 37px;
