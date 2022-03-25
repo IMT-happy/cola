@@ -164,10 +164,10 @@ router.beforeEach(async (to, from, next) => {
     const gitlabToken = Cookie.get('username')
     // console.log(gitlabToken)
     if (!gitlabToken) {
-      // const nextUrl = `https://dashboard-mng.bilibili.co/login.html?caller=172.16.39.188:8689`
-      // Session.clear()
-      // NProgress.done()
-      // window.location.href = nextUrl
+      const nextUrl = `https://dashboard-mng.bilibili.co/login.html?caller=cola`
+      Session.clear()
+      NProgress.done()
+      window.location.href = nextUrl
     } else {
       // 已拿到登陆成功信息，尝试写入cookie和session，和登陆用户信息到store
       const newname = Session.get('username')
