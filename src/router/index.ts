@@ -16,6 +16,7 @@ import weballcase from '@/views/weballcase.vue'
 import videofuzz from '@/views/videofuzz.vue'
 import webfuzz from '@/views/webfuzz.vue'
 import caseinfo from '@/views/caseinfo.vue'
+import fuzzinfo from '@/views/fuzzinfo.vue'
 import infos from '../common/types/info'
 import 'nprogress/nprogress.css'
 import { store } from '@/store'
@@ -127,6 +128,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/caseinfo',
     name: 'caseinfo',
     component: caseinfo,
+    meta: {
+      requireAuth: true // 需要登录才能访问
+    }
+  },
+  {
+    path: '/fuzzinfo',
+    name: 'fuzzinfo',
+    component: fuzzinfo,
     meta: {
       requireAuth: true // 需要登录才能访问
     }

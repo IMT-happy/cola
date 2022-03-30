@@ -40,6 +40,18 @@ export function FormatPipelineStageicon(str: string): string {
   if (str === 'warning') {
     return 'warning'
   }
+  if (str === 'isstart') {
+    return 'isstart'
+  }
+  if (str === 'closed') {
+    return 'closed'
+  }
+  if (str === 'add') {
+    return 'add'
+  }
+  if (str === 'delete') {
+    return 'delete'
+  }
   return 'pending'
 }
 
