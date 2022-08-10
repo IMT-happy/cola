@@ -68,7 +68,7 @@ export default defineComponent({
     onMounted(() => {
       // 水印
       const name = Cookie.get('username')
-      state.name = name || 'bilibili'
+      state.name = name || 'imt'
       watermark(state.name) // 水印名
     })
     onUnmounted(() => {

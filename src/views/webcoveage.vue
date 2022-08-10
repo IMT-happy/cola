@@ -95,13 +95,13 @@
         </el-form-item>
         <el-form-item label="项目链接">
           <el-input
-            placeholder="https://www.bilibili.com/blackboard/activity-UXWxZNfS4.html"
+            placeholder="https://www.imt.com/blackboard/activity-UXWxZNfS4.html"
             v-model="form.url"
           ></el-input>
         </el-form-item>
         <el-form-item label="Gitlab">
           <el-input
-            placeholder="https://git.bilibili.co/crayon/jinkela"
+            placeholder="https://git.imt.co/crayon/jinkela"
             v-model="form.applicationname"
           ></el-input>
         </el-form-item>
@@ -177,7 +177,7 @@ export default defineComponent({
   setup() {
     const reactiveData = reactive({
       loading: false,
-      riderhref: 'http://ops-rider.bilibili.co/App/Releases?cmdb_app_name=',
+      riderhref: 'http://ops-rider.imt.co/App/Releases?cmdb_app_name=',
       currentPage3: 1,
       totalnums: 0,
       input: '',

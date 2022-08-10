@@ -37,10 +37,10 @@ export default defineComponent({
   name: 'Quality',
   setup() {
     const state = reactive({
-      furl: 'http://bi.bilibili.co/page/h0aa8802b9ec54dbba69f2fc',
-      surl: 'http://moni.bilibili.co/d/EcSDsERMz/web-bo-fang-qi-bo-fang-shu-ju-jian-kong-web?orgId=1&refresh=2m',
-      murl: 'http://moni.bilibili.co/d/EcSDsERMz/web-bo-fang-qi-bo-fang-shu-ju-jian-kong-web?orgId=1&refresh=2m',
-      turl: 'https://moni.bilibili.co/d/615MtsXGz1/web-p2p-ge-duan-zhong-dian-shu-ju-jian-kong?orgId=1&from=now-24h&to=now&refresh=2m'
+      furl: 'http://bi.imt.co/page/h0aa8802b9ec54dbba69f2fc',
+      surl: 'http://moni.imt.co/d/EcSDsERMz/web-bo-fang-qi-bo-fang-shu-ju-jian-kong-web?orgId=1&refresh=2m',
+      murl: 'http://moni.imt.co/d/EcSDsERMz/web-bo-fang-qi-bo-fang-shu-ju-jian-kong-web?orgId=1&refresh=2m',
+      turl: 'https://moni.imt.co/d/615MtsXGz1/web-p2p-ge-duan-zhong-dian-shu-ju-jian-kong?orgId=1&from=now-24h&to=now&refresh=2m'
     })
 
     onMounted(() => {})

@@ -16,10 +16,10 @@
       <div style="font-size: 16px; margin-bottom: 15px">
         异常测试的播放页:
         <el-link
-          href="https://www.bilibili.com/video/BV1U54y1J7uo"
+          href="https://www.imt.com/video/BV1U54y1J7uo"
           type="primary"
           target="_blank"
-          >https://www.bilibili.com/video/BV1U54y1J7uo</el-link
+          >https://www.imt.com/video/BV1U54y1J7uo</el-link
         >
       </div>
 

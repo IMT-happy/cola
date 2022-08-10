@@ -49,7 +49,7 @@ export default defineComponent({
       name: '' as any
     })
     const goqaMng = () => {
-      window.open('https://info.bilibili.co/pages/viewpage.action?pageId=96098545')
+      window.open('https://info.imt.co/pages/viewpage.action?pageId=96098545')
     }
 
     onMounted(() => {

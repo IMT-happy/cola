@@ -173,7 +173,7 @@ router.beforeEach(async (to, from, next) => {
     const gitlabToken = Cookie.get('username')
     // console.log(gitlabToken)
     if (!gitlabToken) {
-      const nextUrl = `https://dashboard-mng.bilibili.co/login.html?caller=cola`
+      const nextUrl = `https://dashboard-mng.imt.co/login.html?caller=cola`
       Session.clear()
       NProgress.done()
       window.location.href = nextUrl

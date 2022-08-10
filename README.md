@@ -23,7 +23,7 @@
 #### 使用 Git
 
 ```sh
-git clone git@git.bilibili.co:guchenghuan/cola.git
+git clone git@git.imt.co:guchenghuan/cola.git
 ```
 
 ### 安装依赖

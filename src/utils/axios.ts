@@ -1,8 +1,8 @@
 import Axios, { AxiosInstance } from 'axios'
 import { ElMessage } from 'element-plus'
 
-// const baseURL = 'http://localhost:6688' //
-const baseURL = 'http://qa-mng.bilibili.co' //
+const baseURL = 'http://localhost:6688' //
+// const baseURL = 'http://qa-mng.imt.co' //
 
 const axios: AxiosInstance = Axios.create({
   baseURL,

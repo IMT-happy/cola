@@ -23,7 +23,7 @@ export default defineComponent({
     })
     onMounted(() => {
       const { name } = infos
-      state.name = name || 'bilibili'
+      state.name = name || 'imt'
     })
     return { ...toRefs(state) }
   }

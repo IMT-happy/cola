@@ -99,7 +99,7 @@ export default defineComponent({
         ],
         series: [
           {
-            name: 'bilibili',
+            name: 'imt',
             type: 'bar',
             barWidth: 15,
             emphasis: {
@@ -191,7 +191,7 @@ export default defineComponent({
             const nowdata = response.data
             state.nowtitle = nowdata.data[0].date.slice(0, 10)
             nowdata.data.forEach((ele: any) => {
-              if (ele.name === 'bilibili') {
+              if (ele.name === 'imt') {
                 state.bilibilidata.push(
                   ele.firstpaint,
                   ele.FCP,
@@ -387,7 +387,7 @@ export default defineComponent({
           const nowdata = response.data
           state.nowtitle = nowdata.data[0].date.slice(0, 10)
           nowdata.data.forEach((ele: any) => {
-            if (ele.name === 'bilibili') {
+            if (ele.name === 'imt') {
               state.bilibilidata.push(
                 ele.firstpaint,
                 ele.FCP,
